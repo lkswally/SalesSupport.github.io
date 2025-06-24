@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Evolución del Soporte Saldoar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --saldoar-primary: #0A84FF; /* Vibrant Blue */
+            --saldoar-secondary: #00C2FF; /* Bright Cyan */
+            --saldoar-background-light: #F0F8FF; /* AliceBlue / Very Light Blue */
+            --saldoar-text-dark: #2C3E50; /* Dark Blue Gray */
+            --saldoar-error: #DC3545; /* Red */
+            --saldoar-success: #28A745; /* Green */
+            --saldoar-warning: #FFC107; /* Yellow / Orange for medium issues */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--saldoar-background-light);
+            color: var(--saldoar-text-dark);
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 80vw;
+            max-width: 500px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="text-saldoar-text-dark">
+
+    <header class="bg-gradient-to-r from-saldoar-primary to-saldoar-secondary text-white text-center py-20 px-4 rounded-b-3xl shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">¡Impulsando el Impacto!</h1>
+        <p class="text-xl md:text-2xl font-light">El Soporte de Saldoar como Motor de Ventas y Experiencia</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="mindset" class="my-16 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-saldoar-text-dark">El Gran Salto: De Ayudante a Impulsor de Valor</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-12">Hoy marcamos un cambio fundamental en nuestra mentalidad. Ya no solo ayudamos a operar, sino que persuadimos al cliente para que concrete cada intercambio, convirtiendo cada interacción en una oportunidad.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 border-b-4 border-saldoar-primary">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="text-xl font-bold mb-2">Recuperar</h3>
+                    <p class="text-gray-600">Clientes con pedidos incompletos o que cometieron errores. Somos su red de seguridad y su guía para el éxito.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 border-b-4 border-saldoar-secondary">
+                    <div class="text-4xl mb-4">💡</div>
+                    <h3 class="text-xl font-bold mb-2">Ayudar</h3>
+                    <p class="text-gray-600">Con la misma calidez y empatía, pero con una clara orientación a la resolución definitiva y proactiva.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300 border-b-4 border-saldoar-primary">
+                    <div class="text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold mb-2">Generar una Venta</h3>
+                    <p class="text-gray-600">Convertir cada interacción, guía y solución en un medio para concretar operaciones y aumentar el valor.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="kpis" class="my-20 bg-saldoar-background-light py-16 px-4 rounded-xl shadow-inner">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-saldoar-text-dark">Midiendo Nuestro Impacto: Los Nuevos KPIs</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 mt-4">Para acompañar este cambio, evaluaremos de forma integral no solo qué tan bien ayudamos, sino cómo impactamos en el negocio y la experiencia del cliente.</p>
+            </div>
+            <div class="flex justify-center">
+                 <div class="chart-container">
+                    <canvas id="kpiRadarChart"></canvas>
+                </div>
+            </div>
+             <p class="text-center mt-6 text-gray-500 italic">Visualización del perfil ideal de un operador de Saldoar.</p>
+        </section>
+
+
+        <section id="interacciones" class="my-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-saldoar-text-dark">La Excelencia en la Interacción: Aprendiendo Juntos</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 mt-4">A continuación, 10 interacciones críticas que nos muestran oportunidades claras de mejora para unificar nuestro estándar de excelencia. Cada caso es una chance de crecer.</p>
+            </div>
+
+            <div class="space-y-8">
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-saldoar-error">
+                    <p class="text-gray-500 font-medium mb-2">Caso 1: Falta de Empatía (Pedido 376391...)</p>
+                    <p class="italic text-gray-700 mb-4">“Cancelo pedido ¿disculpas?”</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-saldoar-error mb-2">❌ Respuesta Dada: "No"</h4>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-saldoar-success mb-2">✅ Sugerencia de Respuesta:</h4>
+                            <p class="text-saldoar-success bg-green-50 p-3 rounded-lg">“Claro, entiendo. Puedo ayudarte a cancelar tu pedido sin ningún costo. Lamento si hubo algún inconveniente. Cuando decidas volver a operar, aquí estamos para asistirte con gusto. ¡Que tengas un excelente día!”</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-saldoar-error">
+                    <p class="text-gray-500 font-medium mb-2">Caso 2: Tono Áspero (Pedido 377540...)</p>
+                    <p class="italic text-gray-700 mb-4">“No entiendo las instrucciones”</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-saldoar-error mb-2">❌ Respuesta Dada: "Lee bien"</h4>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-saldoar-success mb-2">✅ Sugerencia de Respuesta:</h4>
+                            <p class="text-saldoar-success bg-green-50 p-3 rounded-lg">“¡Hola! Comprendo perfectamente que las instrucciones puedan parecer complejas al principio. Estoy aquí para ayudarte paso a paso. ¿En qué punto te quedaste o qué parte te genera más dudas? Queremos que tu operación sea muy sencilla.”</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-saldoar-warning">
+                    <p class="text-gray-500 font-medium mb-2">Caso 3: Falta de Proactividad (Pedido 377486...)</p>
+                    <p class="italic text-gray-700 mb-4">“Subí comprobante”</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-saldoar-error mb-2">❌ Respuesta Dada: — (Sin respuesta)</h4>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-saldoar-success mb-2">✅ Sugerencia de Respuesta:</h4>
+                            <p class="text-saldoar-success bg-green-50 p-3 rounded-lg">“¡Comprobante recibido! Muchas gracias por enviarlo. Ya mismo lo estoy revisando en el sistema y te avisaré por aquí en breve sobre el estado de tu pedido. ¡Gracias por tu paciencia!”</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-saldoar-warning">
+                    <p class="text-gray-500 font-medium mb-2">Caso 4: Respuesta Evasiva (Pedido 375624...)</p>
+                    <p class="italic text-gray-700 mb-4">“¿Cuándo acreditan?”</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-saldoar-error mb-2">❌ Respuesta Dada: "No sé"</h4>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-saldoar-success mb-2">✅ Sugerencia de Respuesta:</h4>
+                            <p class="text-saldoar-success bg-green-50 p-3 rounded-lg">“Comprendo tu ansiedad por la acreditación. Generalmente, el proceso se completa en aproximadamente 30 minutos. Si tu pago supera la hora de haber sido enviado y aún no lo ves, por favor, avísame por aquí y lo escalo inmediatamente para que lo revisen con prioridad. Estoy atento a tu caso.”</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-saldoar-error">
+                    <p class="text-gray-500 font-medium mb-2">Caso 5: Falta de Cierre y Confirmación (Pedido 374690...)</p>
+                    <p class="italic text-gray-700 mb-4">Cliente anula error</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-saldoar-error mb-2">❌ Respuesta Dada: "Ok"</h4>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-saldoar-success mb-2">✅ Sugerencia de Respuesta:</h4>
+                            <p class="text-saldoar-success bg-green-50 p-3 rounded-lg">“¡Gracias por avisar! Ya he revertido el marcado en tu pedido, para que todo quede en orden. Por favor, revisá que todo esté correcto. Si ves algo inusual o necesitas más ayuda, no dudes en avisarme.”</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-saldoar-warning">
+                    <p class="text-gray-500 font-medium mb-2">Caso 6: Genérica sin Orientación (Pedido 373399...)</p>
+                    <p class="italic text-gray-700 mb-4">Reclamo comisión</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-saldoar-error mb-2">❌ Respuesta Dada: "Banco"</h4>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-saldoar-success mb-2">✅ Sugerencia de Respuesta:</h4>
+                            <p class="text-saldoar-success bg-green-50 p-3 rounded-lg">“Entiendo tu consulta sobre la comisión. Te comento que esa comisión la aplica directamente la entidad bancaria o la plataforma de pago (ej. Mercado Pago) al procesar la transferencia, no Saldoar. Si te interesa, podemos sugerirte métodos de pago que te ayuden a evitar comisiones similares en futuras operaciones. ¿Te gustaría saber más?”</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-saldoar-error">
+                    <p class="text-gray-500 font-medium mb-2">Caso 7: Vaga sin Acción Concreta (Pedido 377236...)</p>
+                    <p class="italic text-gray-700 mb-4">Demora</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-saldoar-error mb-2">❌ Respuesta Dada: "Estamos en eso"</h4>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-saldoar-success mb-2">✅ Sugerencia de Respuesta:</h4>
+                            <p class="text-green-800 bg-green-50 p-3 rounded-lg">“Lamento la demora en tu pedido. Ya validé tu identidad. Ahora mismo estamos esperando la confirmación de la operación para poder enviarlo/finalizarlo. Te aviso por aquí en cuanto se concrete. ¡Agradezco tu paciencia!”</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-saldoar-warning">
+                    <p class="text-gray-500 font-medium mb-2">Caso 8: Poco Guía (Pedido 377158...)</p>
+                    <p class="italic text-gray-700 mb-4">Pago duplicado</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-saldoar-error mb-2">❌ Respuesta Dada: "Reembolsa"</h4>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-saldoar-success mb-2">✅ Sugerencia de Respuesta:</h4>
+                            <p class="text-green-800 bg-green-50 p-3 rounded-lg">“Comprendo que has realizado un pago duplicado, lamento mucho este inconveniente. Puedo ayudarte a solicitar el reintegro. Para iniciar el proceso, necesito que me compartas el comprobante de pago duplicado y el alias/CBU de la cuenta a la que deseas que se realice la devolución. Estoy para ayudarte a recuperarlo.”</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-saldoar-error">
+                    <p class="text-gray-500 font-medium mb-2">Caso 9: Monosilábica sin Solución (Pedido 377106...)</p>
+                    <p class="italic text-gray-700 mb-4">Error destino</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-saldoar-error mb-2">❌ Respuesta Dada: "Ah"</h4>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-saldoar-success mb-2">✅ Sugerencia de Respuesta:</h4>
+                            <p class="text-green-800 bg-green-50 p-3 rounded-lg">“¡Hola! Entiendo que hubo un error con el destino del pago. Lamento el inconveniente. Puedo ayudarte a corregirlo: por favor, asegúrate de utilizar el alias [Alias Correcto] para el pago. Avísame en cuanto lo hayas hecho para que pueda revisarlo y continuemos con tu pedido. Contá con mi ayuda.”</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-saldoar-error">
+                    <p class="text-gray-500 font-medium mb-2">Caso 10: Empatía Vacía (Pedido 372099...)</p>
+                    <p class="italic text-gray-700 mb-4">Cliente molesto</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-bold text-saldoar-error mb-2">❌ Respuesta Dada: "Lo siento"</h4>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-saldoar-success mb-2">✅ Sugerencia de Respuesta:</h4>
+                            <p class="text-green-800 bg-green-50 p-3 rounded-lg">“Comprendo tu frustración con esta situación y lo siento mucho. Para poder resolverlo, necesito que me brindes más detalles sobre [problema específico]. Haré todo lo que esté a mi alcance para ayudarte a encontrar una solución y darte la tranquilidad que mereces. Estoy atento a tu respuesta.”</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="plan" class="my-20 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-saldoar-text-dark">Nuestro Plan de Acción</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-12">Para lograr esta evolución, seguiremos un plan claro y concreto en las próximas semanas.</p>
+            
+            <div class="relative max-w-2xl mx-auto">
+                <div class="border-r-2 border-saldoar-primary absolute h-full top-0" style="left: 15px"></div>
+                <ul class="space-y-12">
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-8 w-8 rounded-full bg-saldoar-primary text-white font-bold">1</div>
+                        </div>
+                        <div class="ml-6 text-left">
+                            <h4 class="text-xl font-bold">Taller Interno Intensivo</h4>
+                            <p class="mt-2 text-gray-600">Realizaremos una sesión de 1 hora sobre la “Estructura de Respuesta Empática, Proactiva y Resolutiva” (S.A.C.R.E.), con casos prácticos.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0">
+                             <div class="flex items-center justify-center h-8 w-8 rounded-full bg-saldoar-primary text-white font-bold">2</div>
+                        </div>
+                        <div class="ml-6 text-left">
+                            <h4 class="text-xl font-bold">Guía de Frases Proactivas</h4>
+                            <p class="mt-2 text-gray-600">Distribuiremos una guía corta y práctica con frases efectivas para mejorar el tono, la empatía y la orientación a la venta.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0">
+                             <div class="flex items-center justify-center h-8 w-8 rounded-full bg-saldoar-primary text-white font-bold">3</div>
+                        </div>
+                        <div class="ml-6 text-left">
+                            <h4 class="text-xl font-bold">Re-auditoría en 30 Días</h4>
+                            <p class="mt-2 text-gray-600">Volveremos a medir nuestro desempeño en 30 días para comprobar la mejora en el porcentaje de respuestas buenas y el impacto en nuestros KPIs.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-saldoar-text-dark text-white text-center py-8 px-4">
+        <p class="text-lg font-bold">¡Vamos a potenciar Saldoar, juntos!</p>
+        <p class="mt-2 text-gray-400">Tu crecimiento profesional está directamente ligado al impacto que generamos.</p>
+    </footer>
+
+    <script>
+        // Set up custom colors for Tailwind to use
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'saldoar-primary': '#0A84FF',
+                        'saldoar-secondary': '#00C2FF',
+                        'saldoar-background-light': '#F0F8FF',
+                        'saldoar-text-dark': '#2C3E50',
+                        'saldoar-error': '#DC3545',
+                        'saldoar-success': '#28A745',
+                        'saldoar-warning': '#FFC107',
+                    }
+                }
+            }
+        }
+        
+        const ctx = document.getElementById('kpiRadarChart');
+        const kpiData = {
+            labels: [
+                'Actitud', 
+                'Proactividad', 
+                'Empatía', 
+                ['Calidad de', 'Respuesta'],
+                'Asertividad', 
+                ['Escucha', 'Activa'],
+                ['Gestión de', 'Oportunidades']
+            ],
+            datasets: [{
+                label: 'Perfil Ideal de Operador',
+                data: [5, 5, 5, 5, 5, 5, 5],
+                fill: true,
+                backgroundColor: 'rgba(10, 132, 255, 0.2)', // Using saldoar-primary for chart fill
+                borderColor: 'rgb(10, 132, 255)', // Using saldoar-primary for chart border
+                pointBackgroundColor: 'rgb(10, 132, 255)', // Using saldoar-primary for points
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(10, 132, 255)'
+            }]
+        };
+
+        new Chart(ctx, {
+            type: 'radar',
+            data: kpiData,
+            options: {
+                maintainAspectRatio: false,
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 5,
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                weight: '500'
+                            },
+                            color: 'var(--saldoar-text-dark)' // Use custom color for labels
+                        },
+                        ticks: {
+                           stepSize: 1,
+                           color: 'var(--saldoar-text-dark)' // Use custom color for ticks
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: 'var(--saldoar-text-dark)' // Use custom color for legend labels
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
