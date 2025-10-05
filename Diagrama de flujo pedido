@@ -1,0 +1,55 @@
+¡Absolutamente\! Aquí tienes un diagrama de flujo de texto con la información y condicionales, diseñado para ser fácil de leer y comprender de un vistazo.
+
+-----
+
+```
+╔═════════════════════════════════════════════════════════════════════════╗
+║                   DIAGRAMA DE FLUJO: PROCESO DE PEDIDO                  ║
+╚═════════════════════════════════════════════════════════════════════════╝
+
+[INICIO: Cliente crea Pedido] 👤
+        ↓
+[¿Requiere Validación de Identidad?] ⚙️
+        ├─ SI (✅)
+        │       ↓
+        │   [¿Primer Pedido?]
+        │           ├─ SI (✅) → [Validación Biométrica: Fotos ID + Video] 🤳
+        │           │                    ↓
+        │           └─ NO (❌) → [Validación Manual: Foto ID + Nota] 📝
+        │                                ↓
+        │                 [Operador Revisa y Aprueba] 🕵️
+        │                       ↓ (Si hay rechazo, vuelve a este punto con corrección)
+        └─ NO (❌) ───────────────────────────────────────────────────────────┐
+                                                                           ↓
+[Sistema asigna Instrucciones de Pago a Contrapartes] 🧾
+        ↓
+[Cliente envía ARS y sube Comprobantes] 💳
+        ↓
+[¿Pagos Correctos y Completos? (Verifica Operador)] 🕵️
+        ├─ SI (✅)
+        │       ↓
+        │   [Contrapartes liberan USD al Cliente] 🤝💸
+        │       ↓
+        │   [Cliente recibe USD] 👤
+        │       ↓
+        │   [¿Cliente confirma recepción?] ✅
+        │           ├─ SI (✅)
+        │           │       ↓
+        │           │   [¿Monto total recibido?] 💯
+        │           │           ├─ SI (✅) → [FIN: Pedido Finalizado] 🎉
+        │           │           │                     ↓
+        │           │           │             (Opcional: Ofrecer Factura)
+        │           │           └─ NO (❌) → (Vuelve a "Cliente recibe USD" hasta completar)
+        │           │
+        │           └─ NO (❌) → [ESTADO: RESOLVIENDO (Disputa de recepción)] 🔴
+        │                                ↓
+        │                       (Operador investiga, soluciona/reasigna)
+        │                                ↓
+        │                       (Si se soluciona, vuelve a "Cliente recibe USD")
+        │
+        └─ NO (❌) → [ESTADO: RESOLVIENDO (Error en pago del Cliente)] 🔴
+                             ↓
+                     (Operador contacta, ajusta/devuelve dinero)
+                             ↓
+                     (Si se soluciona, vuelve a "Sistema asigna Instrucciones...")
+```
